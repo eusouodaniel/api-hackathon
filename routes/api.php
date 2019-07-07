@@ -28,7 +28,7 @@ Route::prefix('v1')->group(function(){
             Route::group(['prefix' => 'order'], function () {
                 Route::post('/', 'API\V1\OrderController@create');
                 Route::put('update', 'API\V1\OrderController@update');
-            }
+            });
         });
     });
     Route::get('customization', 'API\V1\CustomizationController@index');

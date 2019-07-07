@@ -7,7 +7,7 @@
             <div class="card border-grey border-lighten-3 m-0">
                 <div class="card-header border-0">
                     <div class="card-title text-center">
-                        <div class="p-1">
+                        <div class="p-1" style='background-color: black;'>
                             <img src="{{ isset($configuration) ? asset($configuration->logo) : null }}" alt="Hackathon" width="180px" height="180px">
                         </div>
                     </div>

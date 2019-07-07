@@ -6,7 +6,7 @@
         <div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
             <div class="card border-grey border-lighten-3 px-2 py-2 m-0">
                 <div class="card-header border-0 pb-0">
-                    <div class="card-title text-center">
+                    <div class="card-title text-center" style='background-color: black;'>
                         <img src="{{ isset($configuration) ? asset($configuration->logo) : null }}" alt="Hackathon" width="180px" height="180px">
                     </div>
                 </div>
