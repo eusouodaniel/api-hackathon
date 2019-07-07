@@ -42,7 +42,7 @@ class LoginController extends Controller {
     public function authenticated(Request $request, $user) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_URL, "http://ip-api.com/json/".$dataRequest['ip']);
+        curl_setopt($ch, CURLOPT_URL, "http://ip-api.com/json/".$request['ip']);
         $result = curl_exec($ch);
 
         curl_close($ch);
