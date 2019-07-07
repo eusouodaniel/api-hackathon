@@ -88,13 +88,15 @@
             @endif
 
             <div class="content">
+                @role('user')
                 <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d60022.980235130846!2d-43.97961467371207!3d-19.906012457087822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m5!1s0xa690aa701c9aff%3A0x7106c08696bbbde1!2s%C3%93rbi+Conecta%2C+Av.+Pres.+Ant%C3%B4nio+Carlos%2C+681+-+Lagoinha%2C+Belo+Horizonte+-+MG%2C+31210-010!3m2!1d-19.9060159!2d-43.9445094!4m0!5e0!3m2!1spt-BR!2sbr!4v1562484451320!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                 <p><button><a href="{{ route('frontend.vacancy.index') }}">Achar vaga</a></button></p>
-                @guest
+                @endrole
+                @role('admin')
                     <div class="title m-b-md">
                         {{ isset($configuration) ? $configuration->title : 'Hackathon' }}
                     </div>
-                @endguest
+                @endrole
             </div>
         </div>
     </body>

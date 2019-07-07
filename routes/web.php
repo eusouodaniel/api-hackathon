@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('frontend.home.index')->middleware('auth');
-Route::get('/achar-vaga', 'VacancyController@index')->name('frontend.vacancy.index')->middleware('auth');
+Route::get('/achar-vaga', 'VacancyController@index')->name('frontend.vacancy.index')->middleware('role.user');
 
 Route::group(['prefix' => 'administrativo', 'middleware' => ['auth']], function () {
     Route::get('/', 'Backend\HomeController@index')->name('backend.home.index');
