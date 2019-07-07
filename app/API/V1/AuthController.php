@@ -11,6 +11,10 @@ use App\Http\Requests\StoreUser;
 
 class AuthController extends Controller {
     
+    public function __construct() {
+        $this->userDomain = app("App\Domains\UserDomain");
+    }
+
     /**
      * Register user and create token
      *
@@ -20,12 +24,11 @@ class AuthController extends Controller {
      * @return [string] message
      */
     public function signUp(StoreUser $request) {
-        $user = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
-        $user->save();
+        $dataRequest['name'] = $request->name;
+        $dataRequest['email'] = $request->email;
+        $dataRequest['password'] = bcrypt($request->password);
+
+        $this->userDomain->create($dataRequest);
 
         return response()->json([
             'message' => 'Successfully created user!'
@@ -52,7 +55,7 @@ class AuthController extends Controller {
         }
 
         $user = $request->user();
-        $tokenResult = $user->createToken('access_user_ppit');
+        $tokenResult = $user->createToken('access_user_hackathon');
         $token = $tokenResult->token;
 
         if($request->remember_me) {

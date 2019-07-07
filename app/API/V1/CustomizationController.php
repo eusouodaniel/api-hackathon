@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CustomizationController extends Controller {
 
     public function __construct() {
-        $this->configurationService = app("App\Domains\ConfigurationDomain");
+        $this->configurationDomain = app("App\Domains\ConfigurationDomain");
     }
     
     /**
@@ -16,7 +16,7 @@ class CustomizationController extends Controller {
      * @return [array] results
      */
     public function index() {
-        $configuration = $this->configurationService->first();
+        $configuration = $this->configurationDomain->first();
 
         return response()->json([
             'message' => 'Successfully returns!',
