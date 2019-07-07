@@ -1,0 +1,14 @@
+.unavaliable-date {
+    background-color: #ff4961 !important;
+    color: #ffffff;
+}
+
+.has-appointments {
+    background-color: #ff9149 !important;
+    color: #ffffff;
+}
+
+.without-appointments {
+    background-color: #28d094 !important;
+    color: #ffffff;
+}

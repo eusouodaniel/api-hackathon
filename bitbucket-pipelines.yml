@@ -1,0 +1,7 @@
+# pipelines:
+#   branches:
+#     develop:
+#       - step:
+#           script:
+#             - chmod +x deploy_dev.sh
+#             - ./deploy_dev.sh
