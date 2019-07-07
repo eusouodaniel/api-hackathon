@@ -54,7 +54,7 @@ class LoginController extends Controller {
         $dataRequest['user_id'] = $user->id;
 
         $dataRequest['latitude'] = $result['lat'];
-        $dataRequest['longitude'] = $result['lat'];
+        $dataRequest['longitude'] = $result['lon'];
 
         $this->accessControlDomain->create($dataRequest);
     }

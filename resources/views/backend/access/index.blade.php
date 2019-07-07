@@ -17,6 +17,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Usuário</th>
                     <th scope="col">IP</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
                     <th scope="col">Data</th>
                 </tr>
             </thead>
@@ -35,6 +37,8 @@
                 { data: 'id' },
                 { data: 'user' },
                 { data: 'last_login_ip' },
+                { data: 'latitude' },
+                { data: 'longitude' },
                 { data: 'last_login_at' },
             ],
         });

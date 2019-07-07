@@ -27,7 +27,7 @@ class VacancyDomain extends BaseDomain {
             $result = json_decode($result, true);
 
             $dataRequest['latitude'] = $result['lat'];
-            $dataRequest['longitude'] = $result['lat'];
+            $dataRequest['longitude'] = $result['lon'];
             $dataRequest['user_id'] = \Auth::user()->id;
             $dataRequest['status'] = 1;
 
