@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('frontend.home.index')->middleware('auth');
-Route::get('/achar-vaga', 'VacancyController@index')->name('frontend.vacancy.index')->middleware('role.user');
+Route::get('/achar-vaga', 'VacancyController@index')->name('frontend.vacancy.index')->middleware('auth');
 
 Route::group(['prefix' => 'administrativo', 'middleware' => ['auth']], function () {
     Route::get('/', 'Backend\HomeController@index')->name('backend.home.index');
@@ -38,14 +38,14 @@ Route::group(['prefix' => 'administrativo', 'middleware' => ['auth']], function 
         Route::get('/', 'Backend\AccessControlController@index')->name('backend.accesses.index');
     });
 
-    Route::group(['prefix' => 'usuarios', 'middleware' => 'role.admin'], function () {
-        Route::get('/', 'Backend\UserController@index')->name('backend.users.index');
-        Route::get('/novo', 'Backend\UserController@create')->name('backend.users.create');
-        Route::post('/novo', 'Backend\UserController@store')->name('backend.users.store');
+    Route::group(['prefix' => 'usuarios', 'middleware' => 'auth'], function () {
+        Route::get('/', 'Backend\UserController@index')->name('backend.users.index')->middleware('role.admin');
+        Route::get('/novo', 'Backend\UserController@create')->name('backend.users.create')->middleware('role.admin');
+        Route::post('/novo', 'Backend\UserController@store')->name('backend.users.store')->middleware('role.admin');
         Route::get('/{id}/editar', 'Backend\UserController@edit')->name('backend.users.edit');
         Route::put('/{id}/editar', 'Backend\UserController@update')->name('backend.users.update');
-        Route::delete('/{id}/deletar', 'Backend\UserController@destroy')->name('backend.users.destroy');
-        Route::post('/alterar-senha', 'Backend\UserController@changePassword')->name('backend.users.change-password');
+        Route::delete('/{id}/deletar', 'Backend\UserController@destroy')->name('backend.users.destroy')->middleware('role.admin');
+        Route::post('/alterar-senha', 'Backend\UserController@changePassword')->name('backend.users.change-password')->middleware('role.admin');
     });
 
     Route::group(['prefix' => 'vagas', 'middleware' => 'auth'], function () {

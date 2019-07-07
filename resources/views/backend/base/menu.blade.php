@@ -17,6 +17,14 @@
                         </a>
                     </li>
                 @endrole
+                @role('user')
+                    <li class=" nav-item @yield('user')">
+                        <a href="{{ route('backend.users.edit', array('id' => Auth::user()->id)) }}">
+                            <i class="la la-user"></i>
+                            <span class="menu-title" data-i18n="">Editar meu perfil</span>
+                        </a>
+                    </li>
+                @endrole
                 <li class=" nav-item @yield('car')">
                     <a href="{{ route('backend.cars.index') }}">
                         <i class="la la-car"></i>

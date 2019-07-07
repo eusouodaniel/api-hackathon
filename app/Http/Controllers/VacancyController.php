@@ -20,7 +20,5 @@ class VacancyController extends Controller {
      */
     public function index() {
         return view('frontend.vacancy.index');
-        // return redirect()
-        //     ->route('login');
     }
 }
